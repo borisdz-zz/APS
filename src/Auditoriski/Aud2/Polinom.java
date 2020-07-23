@@ -1,4 +1,4 @@
-package Auditoriski.Aud1;
+package Auditoriski.Aud2;
 
 import Strukturi.*;
 
