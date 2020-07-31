@@ -149,25 +149,25 @@ public class ListaOdListi {
         DLLNode<DLL<Integer>> it = list.getFirst();
         DLL<Integer> sums = new DLL<Integer>();
 
-        while(it!=null){
+        while (it != null) {
             DLLNode<Integer> it2 = it.element.getFirst();
             int sum = 0;
 
-            while (it2!=null){
-                sum+=it2.element;
-                it2=it2.succ;
+            while (it2 != null) {
+                sum += it2.element;
+                it2 = it2.succ;
             }
 
             sums.insertLast(sum);
-            it=it.succ;
+            it = it.succ;
         }
 
         DLLNode<Integer> i = sums.getFirst();
 
-        while(i!=null){
+        while (i != null) {
 
-            prod*=i.element;
-            i=i.succ;
+            prod *= i.element;
+            i = i.succ;
         }
 
         return prod;

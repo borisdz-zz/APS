@@ -141,15 +141,15 @@ class DLL<E> {
 
 public class PalindromeDLL {
 
-    public static int isItPalindrome(DLL<Integer> list){
+    public static int isItPalindrome(DLL<Integer> list) {
         //TODO:Vashiot kod tuka...
         DLLNode i1 = list.getFirst();
         DLLNode i2 = list.getLast();
-        int i =0;
-        while(i<list.length()/2){
-            if(i1.element == i2.element){
-                i1=i1.succ;
-                i2=i2.pred;
+        int i = 0;
+        while (i < list.length() / 2) {
+            if (i1.element == i2.element) {
+                i1 = i1.succ;
+                i2 = i2.pred;
                 i++;
             } else return -1;
         }

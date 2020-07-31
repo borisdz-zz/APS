@@ -16,7 +16,7 @@ class DLLNode<E> {
 
     @Override
     public String toString() {
-        return "<-"+element.toString()+"->";
+        return "<-" + element.toString() + "->";
     }
 }
 
@@ -70,7 +70,7 @@ class DLL<E> {
     }
 
     public void insertAfter(E o, DLLNode<E> after) {
-        if(after==last){
+        if (after == last) {
             insertLast(o);
             return;
         }
@@ -80,7 +80,7 @@ class DLL<E> {
     }
 
     public void insertBefore(E o, DLLNode<E> before) {
-        if(before == first){
+        if (before == first) {
             insertFirst(o);
             return;
         }
@@ -174,34 +174,32 @@ public class DLLVojska {
         DLLNode<Integer> node = result.getFirst();
         System.out.print(node.element);
         node = node.succ;
-        while(node != null){
-            System.out.print(" "+node.element);
+        while (node != null) {
+            System.out.print(" " + node.element);
             node = node.succ;
         }
 
     }
 
 
-
-    public static DLL splitInterval(DLL<Integer> lista, int a, int b){
+    public static DLL splitInterval(DLL<Integer> lista, int a, int b) {
 
         DLL<Integer> rezz = new DLL<>();
         DLLNode<Integer> p = lista.getFirst();
 
         // BASE CASE A == B
-        if(a == b){
+        if (a == b) {
             rezz.insertLast(a);
             return rezz;
         }
 
         // ima povekje elementi
         boolean flag = false;
-        while(p != null&&p.element != b){
-            if(p.element == a){
+        while (p != null && p.element != b) {
+            if (p.element == a) {
                 rezz.insertLast(a);
                 flag = true;
-            }
-            else if(flag == true){
+            } else if (flag == true) {
                 rezz.insertLast(p.element);
             }
 
@@ -218,8 +216,8 @@ public class DLLVojska {
 
         // Vasiot kod tuka
 
-        DLL<Integer> interval1 = splitInterval(lista,a,b);
-        DLL<Integer> interval2 = splitInterval(lista,c,d);
+        DLL<Integer> interval1 = splitInterval(lista, a, b);
+        DLL<Integer> interval2 = splitInterval(lista, c, d);
 
 
         DLLNode<Integer> p = lista.getFirst();
@@ -227,34 +225,32 @@ public class DLLVojska {
         int n = lista.length();
         DLL<Integer> rezz = new DLL<Integer>();
 
-        while(p != null && counter < n){
-            if(p.element == a){
+        while (p != null && counter < n) {
+            if (p.element == a) {
                 // kopiraj interval 2
                 DLLNode<Integer> p2 = interval2.getFirst();
-                while(p2 != null){
+                while (p2 != null) {
                     rezz.insertLast(p2.element);
                     p2 = p2.succ;
                 }
 
-                while(p.element != b){
+                while (p.element != b) {
                     p = p.succ;
                     counter++;
                 }
-            }
-            else if(p.element == c ){
+            } else if (p.element == c) {
                 // kopiraj interval 1
                 DLLNode<Integer> p2 = interval1.getFirst();
-                while(p2 != null){
+                while (p2 != null) {
                     rezz.insertLast(p2.element);
                     p2 = p2.succ;
                 }
 
-                while(p.element != d){
+                while (p.element != d) {
                     p = p.succ;
                     counter++;
                 }
-            }
-            else{
+            } else {
                 // kopiraj orginalna lista
                 rezz.insertLast(p.element);
             }

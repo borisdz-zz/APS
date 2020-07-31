@@ -21,27 +21,27 @@ class DLLNode<E extends Comparable<E>> {
 public class DLL<E extends Comparable<E>> {
     private DLLNode<E> first, last;
 
-    public E deleteFirst(){
-        if(first!=null){
-            DLLNode<E> tmp=first;
-            first=first.succ;
-            if(first!=null)
-                first.pred=null;
-            if(first==null)
-                last=null;
+    public E deleteFirst() {
+        if (first != null) {
+            DLLNode<E> tmp = first;
+            first = first.succ;
+            if (first != null)
+                first.pred = null;
+            if (first == null)
+                last = null;
             return tmp.element;
-        }else
+        } else
             return null;
     }
 
-    public E deleteLast(){
-        if(first!=null){
-            if(first.succ==null)
+    public E deleteLast() {
+        if (first != null) {
+            if (first.succ == null)
                 return deleteFirst();
-            else{
+            else {
                 DLLNode<E> tmp = last;
-                last=last.pred;
-                last.succ=null;
+                last = last.pred;
+                last.succ = null;
                 return tmp.element;
             }
         }

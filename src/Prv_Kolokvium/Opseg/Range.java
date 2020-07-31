@@ -23,12 +23,12 @@ public class Range {
     static long proveri(long N, long A, long B) {
         // Vasiot kod tuka
         if (A == B) {
-            if(ravenka(A)==N){
+            if (ravenka(A) == N) {
                 return A;
             }
-        } else if(A<=B){
-            for(long i = A; i<=B;i++){
-                if(ravenka(i)==N){
+        } else if (A <= B) {
+            for (long i = A; i <= B; i++) {
+                if (ravenka(i) == N) {
                     return i;
                 }
             }

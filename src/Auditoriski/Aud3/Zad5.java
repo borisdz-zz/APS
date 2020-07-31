@@ -13,18 +13,18 @@ package Auditoriski.Aud3;
 4   CD player, MP3 player…          80              5
 */
 
-class Greedy{
-    void sortiraj(int p[], int t[], int n){
-        int i,j,tmpP,tmpT;
-        for(i =0;i<n;i++){
-            for(j=i+1;j<n;j++){
-                if((p[i]/(float)t[i])<(p[j]/(float)t[j])){
-                    tmpP=p[i];
-                    tmpT=t[i];
-                    p[i]=p[j];
-                    t[i]=t[j];
-                    p[j]=tmpP;
-                    t[j]=tmpT;
+class Greedy {
+    void sortiraj(int p[], int t[], int n) {
+        int i, j, tmpP, tmpT;
+        for (i = 0; i < n; i++) {
+            for (j = i + 1; j < n; j++) {
+                if ((p[i] / (float) t[i]) < (p[j] / (float) t[j])) {
+                    tmpP = p[i];
+                    tmpT = t[i];
+                    p[i] = p[j];
+                    t[i] = t[j];
+                    p[j] = tmpP;
+                    t[j] = tmpT;
                 }
             }
         }
@@ -32,26 +32,26 @@ class Greedy{
 
     //p i t gi sodrzzat profilot i tezinata na objektite
     //C e kapacitet na paketot, x e vektor na resenieto
-    float grFractKnp(int p[], int t[], float C, int n, float x[]){
-        sortiraj(p,t,n);
+    float grFractKnp(int p[], int t[], float C, int n, float x[]) {
+        sortiraj(p, t, n);
         //objektite se pordedeni taka da bide zadovolen p[i]/t[i] += p[i+1]t[i+1]
 
         int i;
-        float profit=0;
+        float profit = 0;
 
-        for(i=0;i<n;i++){
-            x[i]=0;
+        for (i = 0; i < n; i++) {
+            x[i] = 0;
         }
 
-        for(i=0;i<n;i++){
-            if(C>t[i]){     //objektot go stavame celosno
-                x[i]=1;
-                C-=t[i];
-                profit+=p[i];
-            }else{          //objektot go stavame delumno
-                x[i]=(C/(float)t[i]);
-                profit+=x[i]*(float)t[i];
-                C=0;
+        for (i = 0; i < n; i++) {
+            if (C > t[i]) {     //objektot go stavame celosno
+                x[i] = 1;
+                C -= t[i];
+                profit += p[i];
+            } else {          //objektot go stavame delumno
+                x[i] = (C / (float) t[i]);
+                profit += x[i] * (float) t[i];
+                C = 0;
                 break;
             }
         }
